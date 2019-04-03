@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>澡堂在线</title>
+</head>
+<body>
+<p>欢迎您，<em><span th:text="${user.loginName}"></span></em></p>
+<a href="/userExit">退出</a>
+<table>
+    <tr>
+        <th>主题</th>
+        <th>标题</th>
+        <th>创建日期</th>
+    </tr>
+    <tr th:each="newsinfo : ${newsinfoList}">
+        <td th:text="${newsinfo.topic}"></td>
+        <td th:text="${newsinfo.title}"></td>
+        <td th:text="${newsinfo.createDate}"></td>
+        <td><a th:href="@{'/userViewOneNews/'+${newsinfo.id}}">查看详情</a></td>
+    </tr>
+</table>
+<p>第<span th:text="${currentPageNum}"></span>页</p>
+<a href="/previousIndex">前一页</a>
+<a href="/nextIndex">下一页</a>
+</body>
+</html>

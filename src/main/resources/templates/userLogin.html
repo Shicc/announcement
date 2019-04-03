@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>用户登录</title>
+</head>
+<body>
+<form th:action="@{/userLogin}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td>账户：</td>
+            <td><input type="text" id="username" th:field="*{loginName}"/></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" id="password" th:field="*{loginPwd}"/></td>
+            <td><button type="submit">登录</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

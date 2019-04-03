@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>添加通知</title>
+    <script type="text/javascript">
+        function check(){
+            var title = document.getElementById("title");
+            var summary = document.getElementById("summary");
+            var content = document.getElementById("content");
+            var topic = document.getElementById("topic");
+            if(title.value == ""){
+                alert("标题不能为空！");
+                title.focus();
+                return false;
+            }else if(summary.value == ""){
+                alert("概要不能为空！");
+                summary.focus();
+                return false;
+            }else if(content.value == ""){
+                alert("内容不能为空！");
+                content.focus();
+                return false;
+            }else if(topic.value() == ""){
+                alert("分类不能为空！")；
+                topic.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<p>欢迎您，<em><span th:text="${admin.loginName}"></span></em></p>
+<h2>添加通知：</h2>
+<form th:action="@{/toAddNewsinfo}" th:object="${newsinfo}" method="post">
+    <table>
+        <tr>
+            <td>标题：</td>
+            <td><input type="text" id="title" th:field="*{title}"/></td>
+        </tr>
+        <tr>
+            <td>分类：</td>
+            <td><input type="text" id="topic" th:field="*{topic}"/></td>
+        </tr>
+        <tr>
+            <td>概要：</td>
+            <td><input type="text" id="summary" th:field="*{summary}"/></td>
+        </tr>
+        <tr>
+            <td>内容：</td>
+            <td><input type="text" id="content" th:field="*{content}"/></td>
+        </tr>
+        <tr>
+            <td><button type="submit">提交</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>管理员控制台</title>
+</head>
+<body>
+<p>欢迎您，<em><span th:text="${admin.loginName}"></span></em></p>
+<a href="/adminExit">退出</a>
+<a href="/addNewsinfo">添加通知</a>
+<br/>
+----------------------------
+<table>
+    <tr>
+        <th>主题</th>
+        <th>标题</th>
+        <th>创建日期</th>
+    </tr>
+    <tr th:each="newsinfo : ${newsinfoList}">
+        <td th:text="${newsinfo.topic}"></td>
+        <td th:text="${newsinfo.title}"></td>
+        <td th:text="${newsinfo.createDate}"></td>
+        <td><a th:href="@{'/adminViewOneNews/'+${newsinfo.id}}">查看详情</a></td>
+    </tr>
+</table>
+<p>第<span th:text="${currentPageNum}"></span>页</p>
+<a href="/previousPage">前一页</a>
+<a href="/nextPage">下一页</a>
+</body>
+</html>

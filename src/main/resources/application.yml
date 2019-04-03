@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/announcement
+    username: root
+    password: 764913
+
+  thymeleaf:
+    encoding: utf-8
+    cache: false  #关闭缓存，不然没法看见实时页面？
+    mode: HTML5
+    content-type: text/html
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+#  redis:
+#    host: localhost
+#    password: secret
+#    pool: 6379

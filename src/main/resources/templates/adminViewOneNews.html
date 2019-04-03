@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>查看通知</title>
+</head>
+<body>
+<p>欢迎您，<em><span th:text="${admin.loginName}"></span></em></p>
+<a href="/adminExit">退出</a>
+<br/>
+<a th:href="@{'/delete/'+${thisNewsinfo.id}}">删除</a>
+<p>分类：<span th:text="${thisNewsinfo.topic}"></span></p>
+<p>标题：<span th:text="${thisNewsinfo.title}"></span></p>
+<p>作者：<span th:text="${thisNewsinfo.author}"></span></p>
+<p>创建日期：<span th:text="${thisNewsinfo.createDate}"></span></p>
+<p>内容：<span th:text="${thisNewsinfo.content}"></span></p>
+</body>
+</html>
